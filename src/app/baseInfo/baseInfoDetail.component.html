@@ -1,0 +1,26 @@
+<form>
+<div class="form-group">
+    <div class="row" *ngFor="let editData of service.baseInfoData[service.currentState['editTarget']]['data']; let i=index">
+        <label [for]="service.baseInfoTitle[i]">{{service.baseInfoTitle[i]}}:</label>
+        <input class="form-control" [value]="service.baseInfoData[service.currentState['editTarget']]['data'][i]" (blur)="getInput($event, i)" required="true">
+
+
+        
+
+        
+
+    </div>
+
+    <button (click)="save()">保存</button>
+    <button (click)="cancel()">取消</button>
+
+</div>
+</form>
+<!-- <div *ngFor="let item of service.test; let i=index">
+    <input [value]="service.test[i]" (blur)="shuru($event,item,i)"/>
+    {{service.test[i]}}
+</div> -->
+
+<!-- 
+<input [(ngModel)]="service.ttest" name="456">
+{{service.ttest}} -->

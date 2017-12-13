@@ -1,0 +1,69 @@
+<!-- <form #form="ngForm" (ngSubmit)="form.form.valid && save()">
+    <div class="form-group">
+        <div class="row" *ngFor="let editData of service.baseInfoTitle; let i=index">
+            <label [for]="service.baseInfoTitle[i]">{{service.baseInfoTitle[i]}}:</label>
+            <input [value]="" (blur)="getInput($event, i)" class="form-control" name="service.baseInfoTitle[index]" 
+             [ngModel]="service.baseInfoTitle[index]" #username="ngModel" required>
+
+            <div *ngIf="form.submitted && !userName.valid" class="text-danger">
+                非法输入
+            </div>
+
+
+        </div>
+        <button type="submit" class="btn btn-default">保存</button>
+        <button class="btn btn-default" (click)="cancel()">取消</button>
+
+    </div>
+
+</form> -->
+
+
+
+
+
+
+<!-- <form #form="ngForm">
+    <input required name="userName" [ngModel]="user.userName" #userName="ngModel" 
+    type="text" class="form-control" placeholder="请输入用户名...（随意输入，假的）">
+    <div *ngIf="form.submitted && !userName.valid" class="text-danger">
+        用户名必须输入！
+    </div>
+
+    <button type="submit" class="btn btn-default">保存</button>
+    <button class="btn btn-default" >取消</button>
+</form> -->
+
+<!-- 
+<form [formGroup]="addForm" novalidate>
+    <div class="form-group">
+        <label class="center-block">Name:
+        <input class="form-control" formControlName="pplu">
+        <p class="text-danger">{{albb}}</p>
+        </label>
+        
+    </div>
+    <p>Form value: {{ addForm.value | json }}</p>
+    <p>Form status: {{ addForm.status | json }}</p>
+    <p>Form error: {{ error | json  }}</p>
+    <p>{{addForm.get("pplu").errors | json}}</p>
+
+
+    <div *ngIf="!error" class="text-danger" [(ngModel)]="error">
+        yiyiyaya
+    </div>
+    <button type="submit" class="btn btn-default">保存</button>
+</form> -->
+
+
+<form [formGroup]="addForm" novalidate #ngForm="ngForm" (ngSubmit)="save()">
+    <div class="form-group" *ngFor="let addData of service.baseInfoTitle; let i=index">
+        <label [for]="service.baseInfoTitle[i]">{{service.baseInfoTitle[i]}}:</label>
+        <input class="form-control" [formControlName]="service.baseInfoTitle[i]" (blur)="getInput($event, i)" (keyup)="validate(i)">
+        <div class="text-danger">{{errorMessage[i]}}</div>
+
+    </div>
+
+    <button type="submit" class="btn btn-default">保存</button>
+    <button class="btn btn-default" (click)="cancel()">取消</button>
+</form>

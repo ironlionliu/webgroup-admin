@@ -1,0 +1,95 @@
+<div class="factory-container">
+    
+    
+    <div id="myoperator" class="container">
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="searchValue" name="searchValue" (focus)="searchFocus()" (blur)="searchBlur()">
+            </div>
+            <button type="submit" class="btn btn-info" (click)="search()">搜索</button>
+            <button type="" class="btn btn-info" (click)="delete()">删除</button>
+            <button type="" class="btn btn-info" (click)="add()">增加</button>
+        </form>
+    </div>
+
+    <div id="choosevisible">
+        选择可见性
+    </div>
+
+    <div id="mytab">
+        <ul class="nav nav-tabs" (click)="changeData($event)">
+            <li role="presentation"  [ngClass]="{'active':service.tabCard == '工厂查询'}"><a>工厂查询</a></li>
+            <li role="presentation"  [ngClass]="{'active':service.tabCard == '公司查询'}"><a>公司查询</a></li>
+            <li role="presentation"  [ngClass]="{'active':service.tabCard == '地址查询'}"><a>地址查询</a></li>
+        </ul>
+    </div>
+
+    <div id="mytable" class="container">
+        <table class="table table-striped">
+            <thead >
+                <tr class="title">
+                    <th>
+                        <input type="checkbox" (click)="checkAll()">
+                    </th>
+                    <th class="titleitem" *ngFor="let Title of service.baseInfoTitle; let ii=index;">
+                            <div *ngIf="service.baseInfoVisibility[ii]!=0" class="infotitle">{{Title}}</div>
+                    </th>
+                </tr>
+            </thead>
+
+
+            <tbody  *ngFor="let baseInfoData of service.baseInfoData; let i=index">
+                <tr class="item" *ngIf="baseInfoData['visiable']!=0">
+                    <td>
+                        <input type="checkbox" [(checked)]="baseInfoData.checked" (click)="checkOne(baseInfoData,i)">
+                    </td>
+                    <td class="dataitem" *ngFor="let data of baseInfoData.data; let ii=index" (click)="edit(baseInfoData,i)">
+                            <div class="infoitem" *ngIf="service.baseInfoVisibility[ii]!=0">{{data}}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+    <nav id="page" aria-label="Page navigation">
+        <ul class="pagination">
+            <li (click)="previous()" class="previous">
+                <a aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li *ngFor="let page of service.pageBar.pages; let i=index" (click)="switchPage(page)">
+                    <span [ngClass]="{'chosenpage':page==service.pageBar.chosenPage}" class="pagebar">
+                        {{page}}
+                    </span>
+            </li>
+            
+            <li (click)="next()" class="next">
+                <a aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- <div (click)="testinit()">初始化测试</div> -->
+
+<!-- <button (click)="testhttp()">获得json啊啊啊</button> -->
+
+<!-- <router-outlet></router-outlet> -->
+
+
+

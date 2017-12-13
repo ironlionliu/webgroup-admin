@@ -1,0 +1,78 @@
+.factory-container {
+    margin: 0 auto;
+    width: 75%;
+    .container { 
+        width: 100%;     
+    }
+
+    #myoperator{
+        width: 100%;
+        background-color: rgba(100,100,100, 0.3); 
+        
+    }
+
+    #mytab{
+        margin: 20px 0px 5px 0px;
+        &:hover{
+            cursor: pointer
+        }
+    }
+
+    #mytable{
+        width: 100%;
+        overflow-x: scroll;
+        &::hover{
+            cursor: pointer;
+        }
+        .title{
+            display: flex;
+            .titleitem{
+                flex:1;
+                margin: 1px;
+                overflow: hidden;
+                border: solid 1px;
+            }
+        }
+        .item{
+            display: flex;
+            .dataitem{
+                flex:1;
+                margin: 1px;
+                overflow: hidden;
+                border: solid 1px;
+            }
+        }
+        .table{
+            width:800;
+        }
+        
+    }
+
+    #page{
+        .chosenpage{
+            color: white;
+            background-color: rgb(91, 192, 222);
+        }
+        .pagebar{
+            &:hover{
+                cursor: pointer;
+                color: white;
+                background-color: rgb(91, 192, 222);
+            } 
+        }
+        .previous:hover, .next:hover{
+            cursor: pointer;
+            color: white;
+            background-color: rgb(91, 192, 222);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<!-- 顶部导航 -->
+<div class="navbar navbar-fixed-top main-nav" role="navigation">
+
+    <div class="factory-container">
+        <div id="title" class="navbar-header">
+            <a routerLink="baseInfo" class="navbar-brand">
+                虚拟工厂
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-responsive-collapse" aria-expanded="false">
+            <div id="title-left" class="nav navbar-nav">
+                <div class="dropdown">
+                    <a routerLink="baseInfo">工厂管理</a>
+                </div>
+                <div class="dropdown">
+                    <a routerLink="baseInfo">数据分析</a>
+                </div>
+            </div>
+            <div id="title-right" class="nav navbar-nav navbar-right">
+                <div routerLinkActive="active">
+                    <a routerLink="manage">管理员</a>
+                </div>
+                <div class="logo-container">
+                    <img class="logo-img" src="../assets/images/logo.jpeg"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 主体内容区域 -->
+
+
+
+
+<div class="container main-container">
+    <router-outlet></router-outlet>
+</div>
+
+
+
+<!-- 底部区域 -->
+<div class="footer bs-footer">
+    <div class="container">
+        <div class="row">
+            <p>
+                Powered by <a href="" target="_blank">航天云网</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
